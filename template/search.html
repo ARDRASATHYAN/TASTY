@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- product section start -->
+<div class="product_section_2 layout_padding">
+    <div class="row">
+      {% for i in product %}
+       <div class="col-lg-3 col-sm-6">
+       
+          <div class="product_box">
+             <h4 class="bursh_text"> {{i.name}}</h4>
+             <p class="lorem_text">{{i.desc|truncatewords:7}}</p>
+             <a > <img src="{{i.img.url}}"  class="image_1" alt=""></a>
+            
+             <div class="btn_main">
+                <div class="buy_bt">
+                   <ul >
+                      <li class="active" style="list-style: none;"><a href="#">qua:{{i.stock}}</a></li>
+                      <li style="list-style: none;"><a href={{i.get_url}}>moredetail</a></li>
+                   </ul>
+                </div>
+                <h3 class="price_text">Price  {{i.price}}</h3>
+             </div>
+          </div>
+         
+       </div>
+       {% endfor %}
+      
+    </div>
+   
+
+  
+ </div>
+    </div>
+ </div>
+ {% endblock %}
+ <!-- product section end -->

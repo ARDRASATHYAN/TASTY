@@ -1,0 +1,380 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/docs.css' %}" rel="stylesheet"> -->
+  <link rel="stylesheet" type="text/css" href="{% static 'base/css/bootstrap.css'%}" />
+  <title>Bootstrap Example</title>
+
+  <!-- <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script> -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+  <title>Bootstrap Example</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+  <link rel="stylesheet" type="text/css" href="{% static 'base/css/bootstrap.css'%}" />
+
+
+  <link href="{% static 'base/css/style.css' %}" rel="stylesheet" />
+
+  <link href="{% static 'base/css/responsive.css' %}" rel="stylesheet" />
+  <style>
+    .navbar-toggler {
+      padding: 0.25rem 0.75rem;
+      font-size: 1.25rem;
+      line-height: 1;
+      background-color: #e1e6eb;
+      border: 1px solid transparent;
+      border-radius: 0.25rem;
+    }
+
+    .filter-button-group {
+      border: 1px solid #e4e4e4;
+      border-radius: 4px;
+      margin: 10px 15px;
+      display: inline-block;
+    }
+
+    .filter-button-group button {
+      color: #333;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      background: #fff;
+      padding: 12px 40px;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .filter-button-group button.active {
+      background: #cfa671;
+      color: #fff;
+      box-shadow: 2px 20px 45px 5px rgba(0, 0, 0, .2);
+    }
+
+
+    form.example input[type=text] {
+      padding: 10px;
+      font-size: 17px;
+      border: 1px solid grey;
+      float: left;
+      width: 80%;
+      background: #f1f1f1;
+    }
+
+    form.example button {
+      float: left;
+      width: 20%;
+      padding: 10px;
+      background: #2196F3;
+      color: white;
+      font-size: 17px;
+      border: 1px solid grey;
+      border-left: none;
+      cursor: pointer;
+    }
+
+    form.example button:hover {
+      background: #0b7dda;
+    }
+
+    form.example::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+
+
+    .product_section {
+      width: 100%;
+      float: left;
+      padding-bottom: 90px;
+    }
+
+    .product_taital {
+      width: 100%;
+      float: left;
+      font-size: 40px;
+      text-transform: uppercase;
+      text-align: center;
+      color: #232322;
+      font-weight: bold;
+    }
+
+    .product_text {
+      width: 100%;
+      float: left;
+      font-size: 16px;
+      text-align: center;
+      color: #50504f;
+      margin: 0px;
+    }
+
+    .product_section_2 {
+      width: 100%;
+      float: left;
+      padding-top: 30px;
+    }
+
+    .product_box {
+      width: 100%;
+      background-color: #ffffff;
+      height: auto;
+      border: 1px solid #7d7d7c;
+      padding: 20px 0px 0px 0px;
+      margin-top: 30px;
+    }
+
+    .bursh_text {
+      width: 100%;
+      font-size: 20px;
+      text-align: center;
+      color: #1a1c1b;
+      font-weight: 600;
+    }
+
+    .lorem_text {
+      width: 100%;
+      font-size: 14px;
+      text-align: center;
+      color: #50504f;
+      margin: 0px;
+    }
+
+    .image_1 {
+      width: 100%;
+      text-align: center;
+      margin: 20px 0px;
+      padding: 0px 20px;
+      height: 200px;
+    }
+
+    .btn_main {
+      width: 100%;
+      display: flex;
+      background-color: #000;
+      height: auto;
+      padding: 20px 10px 13px 10px;
+    }
+
+    .buy_bt {
+      float: left;
+      width: 100%;
+    }
+
+    .buy_bt ul {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .buy_bt li a {
+      float: left;
+      font-size: 12px;
+      color: #252525;
+      padding: 5px 10px;
+      background-color: #ffffff;
+      text-transform: uppercase;
+      margin-right: 5px;
+      border-radius: 40px;
+    }
+
+    .buy_bt li a:hover {
+      background-color: #f5ddb6;
+      color: #ffffff;
+    }
+
+    .buy_bt li.active a {
+      background-color: #f5ddb6;
+      color: #fff;
+    }
+
+    .price_text {
+      font-size: 16px;
+      color: #fefefd;
+      width: 42%;
+      padding-top: 5px;
+      text-align: right;
+    }
+
+    .seemore_bt {
+      width: 170px;
+      margin: 0 auto;
+      padding-top: 60px;
+    }
+
+    .seemore_bt a {
+      width: 100%;
+      float: left;
+      font-size: 16px;
+      color: #ffffff;
+      background-color: #252525;
+      text-align: center;
+      padding: 10px 0px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .seemore_bt a:hover {
+      color: #ffffff;
+      background-color: #f5ddb6;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Example Code -->
+
+  <nav class="navbar navbar-expand-lg " style="background-color: rgb(19, 16, 16);">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#" style="color: #e4e4e4; padding: 10px;">
+            <img src="{% static 'base/images/burger-1487481_1280.png' %}" alt="Logo" style="height: 45px;">
+            <span style="font-size: 1.5em; font-weight: bold; color: #e1e6eb;">TASTY</span>
+        </a>
+   
+    
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}" style="color: #e4e4e4;">HOME <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'cartdetail' %}" style="color: #e4e4e4;">
+              <i class="fa fa-shopping-cart" style="font-size:26px">
+               <SUP>{{ itc }}</SUP> </i>
+            </a>
+          </li>
+        </ul>
+
+
+
+        <a class="nav-link" href="{% url 'logout' %}">
+
+          <button class="btn btn-outline-danger" style="width: 80px;">LOGOUT</button>
+
+        </a>
+
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- End Example Code -->
+
+  {% block content %}
+  {% endblock %}
+  <div class="container-fluid my-5">
+    <!-- Footer -->
+    <footer
+            class="text-center text-lg-start text-white"
+            style="background-color: #000206"
+            >
+      <!-- Grid container -->
+      <div class="container p-4 pb-0">
+        <!-- Section: Links -->
+        <section class="">
+          <!--Grid row-->
+          <div class="row">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">
+                TASTY
+              </h6>
+              <p>
+                Indulge your senses at TASTY, where passion meets palate.
+                 Our culinary artisans craft delectable dishes using only the freshest ingredients, delivering an unforgettable dining experience. From savory bites to sweet delights, each creation is a symphony of flavors. 
+                Come, savor the extraordinary – where every meal is a celebration of taste.
+              </p>
+            </div>
+            <!-- Grid column -->
+  
+            <hr class="w-100 clearfix d-md-none" />
+  
+            <!-- Grid column -->
+           
+            
+            <!-- Grid column -->
+  
+            <hr class="w-100 clearfix d-md-none" />
+  
+            <!-- Grid column -->
+       
+  
+            <!-- Grid column -->
+            <hr class="w-100 clearfix d-md-none" />
+  
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+              
+              <p><i class=" mr-3"></i>📧 Email: info@gmail.com</p>
+              <p><i class=" mr-3"></i>📞 Phone:  + 01 234 567 88</p>
+              <p><i class=" mr-3"></i> ⏰ Opening Hours:</p>
+              <p><i class=" mr-3"></i> Monday-Saturday: 8am - 8pm</p>
+              <p><i class=" mr-3"></i> Sunday: holiyday</p>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!--Grid row-->
+        </section>
+        <!-- Section: Links -->
+  
+        <hr class="my-3">
+  
+        <!-- Section: Copyright -->
+        <section class="p-3 pt-0">
+          <div class="row d-flex align-items-center">
+            <!-- Grid column -->
+           
+            
+              <!-- Copyright -->
+              <div class="p-3" style="justify-content: center;text-align: center; display: flex;">
+              
+                <a class="text-white" href="https://mdbootstrap.com/"
+                   >  &copy;Tasty. All Rights Reserved. <script>document.write(new Date().getFullYear())</script><br>Designed with ❤️ by ardra</a
+                  >
+              
+                  
+              <!-- Copyright -->
+            </div>
+            <!-- Grid column -->
+  
+           
+            
+             
+              
+         
+            
+        </section>
+        <!-- Section: Copyright -->
+      </div>
+      <!-- Grid container -->
+    </footer>
+    <!-- Footer -->
+  </div>
+  <!-- End of .container -->
+  <!-- <footer class='footer'>
+    &copy;shop <script>document.write(new Date().getFullYear())</script>
+
+  </footer> -->
+
+</body>
+
+</html>

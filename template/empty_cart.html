@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="card text-center mx-auto" style="max-width: 400px;">
+      <div class="card-header bg-danger text-white">
+        <h2>Your Cart is Empty</h2>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Your shopping cart is currently empty. Browse our products and add items to your cart to make a purchase.</p>
+        <a href="{% url 'home' %}" class="btn btn-primary">Continue Shopping</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

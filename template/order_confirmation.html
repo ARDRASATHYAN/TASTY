@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="card text-center mx-auto" style="max-width: 600px;">
+      <div class="card-header bg-info text-white">
+        <h2>Order Confirmation</h2>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Thank you for your order! Your items will be shipped soon.</p>
+        <p class="card-text">Order ID: {{ order.id }}</p>
+
+        <h3 class="card-title mt-4">Order Details:</h3>
+        <ul class="list-group list-group-flush">
+          {% for order_item in order.orderitem_set.all %}
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <span class="font-weight-bold">{{ order_item.product.name }}</span><br>
+                  <span>Quantity: {{ order_item.quantity }}</span>
+                </div>
+                <div class="font-weight-bold">
+                  Total: ${{ order_item.total }}
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <p class="card-text mt-4 font-weight-bold">Total Amount: ${{ order_total }}</p>
+        <p class="card-text mt-3">We appreciate your business!</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

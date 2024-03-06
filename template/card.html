@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shopping Cart</title>
+
+    <link rel="stylesheet" href="{% static 'car/style.css' %}" media="screen" title="no title" charset="utf-8">
+    <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
+    <meta name="robots" content="noindex,follow" />
+  </head>
+  <body>
+    <div class="shopping-cart" >
+      <!-- Title -->
+      <div class="title">
+        Shopping Bag
+      </div>
+{% for i in ci %}
+      <!-- Product #1 -->
+      <div class="item ">
+        <div class="buttons">
+          <a class="delete-btn" href="{% url 'remove' i.prodt.id %}"></a>
+         
+        </div>
+
+        <div class="image">
+          <img src="{{i.prodt.img.url}}" alt="" style="height:80px;width: 112px;" />
+        </div>
+
+        <div class="description">
+          <span>{{i.prodt.id}} </span>
+          <span>{{i.prodt.name}}</span>
+          <span>{{i.quantity}}</span>
+          <span> {{i.prodt.price}} </span>
+        </div>
+
+        <div class="quantity">
+          <button class="plus-btn" type="button" name="button">
+            <a href="{% url 'addcart' i.prodt.id %}">+</a>
+          </button>
+          <input type="text" name="name" value="{{i.quantity}}">
+          <button class="minus-btn" type="button" name="button">
+            <a href="{% url 'min' i.prodt.id %}">-</a>
+          </button>
+        </div>
+
+        <div class="total-price">{{i.total}}</div>
+      </div>
+{% endfor %}
+      <!-- Product #1 -->
+      <div class="item " style="justify-content: space-between;">
+      
+        <div class="total-price">total:{{t}}</div>
+        <div class="total-price">  {% if ci %}
+          <a href=" {% url 'place_order' %}">
+              <button class="btn-outline-danger" style="width: 50px;">order</button>
+          </a>
+      {% else %}
+          <p>Your cart is empty.</p>
+      {% endif %}</div>
+      </div>
+    </div>
+
+   
+    
+  </body>
+</html>
+{% endblock %}
